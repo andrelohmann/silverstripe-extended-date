@@ -1,0 +1,5 @@
+name: extended-date
+---
+Date:
+  extensions:
+    - ExtendedDate
