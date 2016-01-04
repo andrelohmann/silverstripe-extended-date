@@ -1,6 +1,7 @@
 <?php
 
-class ExtendedDate extends DataExtension {
+class ExtendedDate extends DataExtension
+{
     
     /**
      * Gets the time difference, but always returns it in a certain format
@@ -9,14 +10,15 @@ class ExtendedDate extends DataExtension {
      * 
      * @return string
      */
-    public function DiffIn($format = 'default'){
-        if($this->owner->value){
+    public function DiffIn($format = 'default')
+    {
+        if ($this->owner->value) {
             $now = new DateTime();
             $timestamp = strtotime($this->owner->value);
             $value = new DateTime('@'.$timestamp);
             $diff = $value->diff($now);
             
-            switch($format) {
+            switch ($format) {
                 case "seconds":
                     return abs($value->getTimestamp() - $now->getTimestamp());
                 break;
@@ -55,8 +57,9 @@ class ExtendedDate extends DataExtension {
      * 
      * @return string
      */
-    public function AddSeconds($seconds){
-        if($this->owner->value){
+    public function AddSeconds($seconds)
+    {
+        if ($this->owner->value) {
             $timestamp = strtotime($this->owner->value);
             $this->owner->setValue($timestamp + $seconds);
             return $this->owner->value;
